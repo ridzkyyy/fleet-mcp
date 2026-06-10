@@ -1,0 +1,56 @@
+{
+  "name": "fleet-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for fleet telemetry — live GPS positions, trip history, geofence events, and NMEA parsing for AI agents. Ships with a zero-setup simulated demo fleet.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "fleet-mcp": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepare": "tsc -p tsconfig.json",
+    "dev": "tsx src/index.ts --http",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "fleet",
+    "telematics",
+    "gps",
+    "geofence",
+    "nmea",
+    "iot",
+    "ai-agents"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ridzkyyy/fleet-mcp.git"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.0.0",
+    "@vitest/coverage-v8": "^3.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}
