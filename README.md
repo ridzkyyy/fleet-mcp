@@ -9,9 +9,9 @@
 ![Node](https://img.shields.io/badge/node-%E2%89%A520-brightgreen)
 ![Status](https://img.shields.io/badge/status-MVP-orange)
 
-![fleet-mcp connected in MCP Lab — 8 fleet telemetry tools, get_fleet_summary result rendered](./docs/mcp-lab-screenshot.png)
+![fleet-mcp demo — MCP Lab connects to the live server, picks get_vehicle_position, types a plate, and reads the fix](./docs/demo.gif)
 
-*fleet-mcp running inside [MCP Lab](https://github.com/ridzkyyy/mcp-lab) — ask your agent "which trucks left the warehouse overnight?" and this is what answers.*
+*Live: [MCP Lab](https://mcp-lab.vercel.app) connecting to `https://fleet-mcp.vercel.app/mcp` — ask your agent "where is truck B 9114?" and this is what answers.*
 
 </div>
 
@@ -26,6 +26,12 @@ It ships with a **deterministic simulated Jakarta logistics fleet** — six vehi
 Built by someone who runs fleet telematics in production — the NMEA checksums, dwell times, and offline-vehicle semantics behave the way real trackers do.
 
 ## Quickstart
+
+**Zero install — try it in your browser right now:**
+
+1. Open [MCP Lab](https://mcp-lab.vercel.app)
+2. Paste `https://fleet-mcp.vercel.app/mcp` and hit Connect
+3. Run `get_fleet_summary` — the trucks are moving right now
 
 **Claude Desktop / any stdio MCP client:**
 
@@ -48,9 +54,9 @@ cd fleet-mcp && npm install && npm run build
 node dist/index.js --http        # → http://localhost:8137/mcp
 ```
 
-Then point [MCP Lab](https://mcp-lab.vercel.app) (or any HTTP-transport MCP client) at `http://localhost:8137/mcp`.
+Then point any HTTP-transport MCP client at `http://localhost:8137/mcp` — or use the hosted endpoint `https://fleet-mcp.vercel.app/mcp` and skip the server entirely.
 
-> **Note:** browsers enforce Local Network Access — connecting from a **hosted** HTTPS client to your localhost may require a permission prompt (Chrome) and won't work headlessly. Running MCP Lab locally (`npm run dev`) always works.
+> **Note:** browsers enforce Local Network Access — connecting from a **hosted** HTTPS client to your localhost may require a permission prompt (Chrome). Hosted→hosted (the endpoint above) or local→local always works.
 
 ## Tools
 
